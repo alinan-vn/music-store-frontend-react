@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import NavBar from './components/global/navbar/index';
+import Footer from './components/global/footer/index';
+
+import About from './components/about/index'
+import AdminPage from './components/admin/adminPage'
+import CustomerManagement from './components/admin/customerManagement/index'
+import ProductInventory from './components/admin/productInventory/index'
+import SongInventory from './components/admin/songInventory/index'
+
+function App(){
+  return(
+    <div>
+      <NavBar />
+      <BrowserRouter>
+        <Route exact path='/about' component={About} />
+        <Route exact path='/admin/admin-page' component={AdminPage} />
+        <Route exact path='/admin/customer-management' component={CustomerManagement} />
+        <Route exact path='/admin/product-inventory' component={ProductInventory} />
+        <Route exact path='/admin/song-inventory' component={SongInventory} />
+        <Route exact path='/' component={} />
+        <Route exact path='/' component={} />
+        <Route exact path='/' component={} />
+      </BrowserRouter>
+      <Footer />
     </div>
-  );
+  )
 }
+
 
 export default App;
