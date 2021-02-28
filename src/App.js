@@ -1,6 +1,8 @@
 import {BrowserRouter, Route} from 'react-router-dom'
 
-import NavBar from './components/global/navbar/index';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Navigation from './components/global/navigation/index';
 import Footer from './components/global/footer/index';
 
 import Home from './components/home/index'
@@ -34,9 +36,9 @@ import SongInventory from './components/admin/songInventory/index'
 function App(){
   return(
     <div>
-      <NavBar />
+      <Navigation />
       <BrowserRouter>
-        <Route exact path='/home' component={Home} />
+        <Route exact path='/' component={Home} />
         <Route exact path='/about' component={About} />
         
         <Route exact path='/register' component={Register} />

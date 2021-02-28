@@ -1,0 +1,7 @@
+.footer {
+    display: flex;
+}
+
+.footer__admin-login {
+    padding-left: 80vw;
+}
