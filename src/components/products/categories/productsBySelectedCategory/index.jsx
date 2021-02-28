@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ProductBySelectedCategory extends React.Component {
+class ProductsBySelectedCategory extends React.Component {
 
     render(){
         return(
@@ -11,4 +11,4 @@ class ProductBySelectedCategory extends React.Component {
     }
 }
 
-export default ProductBySelectedCategory
+export default ProductsBySelectedCategory

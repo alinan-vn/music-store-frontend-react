@@ -1,6 +1,7 @@
 import React from 'react'
 
-class SongBySelectedGenre extends React.Component {
+class AdminLogin extends React.Component {
+
 
     render(){
         return(
@@ -11,4 +12,4 @@ class SongBySelectedGenre extends React.Component {
     }
 }
 
-export default SongBySelectedGenre
+export default AdminLogin
