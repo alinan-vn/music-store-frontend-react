@@ -1,0 +1,51 @@
+.cart__product-items {
+    margin: 5vh 0 5vh 5vw;
+    width: 60%;
+}
+
+.cart__product-items-name-column {
+    /* width: 30vw; */
+    width: 15rem;
+}
+
+.cart__product-items-price-column {
+    width: 5vw;
+}
+
+.cart__product-items-quantity-column {
+    width: 5vw;
+}
+
+.cart__song-items {
+    margin: 5vh 0 5vh 5vw;
+    width: 60%;
+}
+
+.cart__song-items-name-column {
+    /* width: 30vw; */
+    width: 15rem;
+}
+
+.cart__song-items-price-column {
+    width: 5vw;
+}
+
+.cart__song-items-quantity-column {
+    width: 5vw;
+}
+
+.cart__sub-total {
+    margin-left: 25vw;
+    margin-bottom: 15vh;
+}
+
+.cart__header > h1 {
+    margin-left: 25vw;
+    font-size: 5rem;
+}
+
+.cart__customer > h3 {
+    margin-left: 15vw;
+    font-size: 1.5rem;
+    color: #421313;
+}
