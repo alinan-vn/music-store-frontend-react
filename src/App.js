@@ -11,6 +11,7 @@ import About from './components/about/index'
 import Login from './components/customer/login/index'
 import Profile from './components/customer/profile/index'
 import Register from './components/customer/register/index'
+import RegisterBillingInfo from './components/customer/register/registerBillingInfo/index'
 
 import Cart from './components/shopping/cart/index'
 import Checkout from './components/shopping/checkout/index'
@@ -42,6 +43,7 @@ function App(){
         <Route exact path='/about' component={About} />
         
         <Route exact path='/register' component={Register} />
+        <Route exact path='/register-billing-information' component={RegisterBillingInfo} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/profile' component={Profile} />
 
