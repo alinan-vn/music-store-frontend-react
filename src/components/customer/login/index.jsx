@@ -8,6 +8,9 @@ class Login extends React.Component {
     render(){
         return(
             <section>
+                <div className='login-header'>
+                    <h2>Please Login</h2>
+                </div>
                 <Form className="login-form">
                     <Form.Group controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
@@ -22,8 +25,8 @@ class Login extends React.Component {
                         Submit
                     </Button>
                 </Form>
-                <div className='login-register-link'>
-                    <Button><a href="/register">Register/Sign up!</a></Button>
+                <div>
+                    <Button className='login-register-link'><a href="/register">Register/Sign up!</a></Button>
                 </div>
             </section>
         )
