@@ -14,7 +14,6 @@ import Register from './components/customer/register/index'
 import RegisterBillingInfo from './components/customer/register/registerBillingInfo/index'
 
 import Cart from './components/shopping/cart/index'
-import Checkout from './components/shopping/checkout/index'
 import PurchaseConfirmation from './components/shopping/purchaseConfirmation/index'
 
 import AllProducts from './components/products/allProducts/index'
