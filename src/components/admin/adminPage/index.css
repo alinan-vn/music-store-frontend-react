@@ -1,0 +1,11 @@
+.admin-page-btns {
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    margin-left: 40vw;
+}
+
+.admin-page-btn {
+    height: 10vh;
+    width: 20vw;
+    margin-bottom: 3rem;
+}
