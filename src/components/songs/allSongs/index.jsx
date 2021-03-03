@@ -2,6 +2,7 @@ import React from 'react'
 import cover from '../song_images/220px-Michael_jackson_thriller_12_inch_single_USA.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, ButtonGroup, Table} from 'react-bootstrap';
+import Popup from "reactjs-popup";
 class AllSongs extends React.Component {
 
     constructor(props) {
