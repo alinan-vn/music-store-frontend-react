@@ -1,0 +1,11 @@
+.customer-management__header {
+    margin-left: 40vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.customer-management__table {
+    width: 80%;
+    margin-left: 10vw;
+    margin-bottom: 30vh;
+}
