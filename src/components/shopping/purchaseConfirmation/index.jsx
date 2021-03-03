@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.css'
-
+import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 class PurchaseConfirmation extends React.Component {
     constructor(){
@@ -42,7 +43,7 @@ class PurchaseConfirmation extends React.Component {
             ],
             productSum: 0,
             songSum: 0,
-            overallSum: 0
+            purchaseConfirmationId: 1234
         }
     }
 
@@ -55,20 +56,57 @@ class PurchaseConfirmation extends React.Component {
         this.state.shoppingSongData.forEach(song => {
             secondSum += song.price * song.quantity
         })
-        this.setState({
-            ...this.state,
-            overallSum: firstSum + secondSum
-        })
+        return firstSum + secondSum
     }
 
-    componentDidMount(){
-        // this.addPricesOfCartItems()
+    getItemDataCard = () => {
+        const productsLength = this.state.shoppingProductData.length
+        const songsLength = this.state.shoppingSongData.length 
+        const subTotal = this.addPricesOfCartItems()
+        const taxes = subTotal * 0.10
+        return(
+            <tr>
+                <td className='purchase-confirmation__general-item'>{productsLength}</td>
+                <td className='purchase-confirmation__general-item'>{songsLength}</td>
+                <td className='purchase-confirmation__general-item'>{productsLength + songsLength}</td>
+                <td className='purchase-confirmation__general-item'>{subTotal}</td>
+                <td className='purchase-confirmation__general-item'>{taxes}</td>
+                <td className='purchase-confirmation__total-item'>{subTotal + taxes}</td>
+            </tr>
+        )
+    }
+
+    handleButtonClick = e => {
+        this.props.history.push(`/all-${e.target.name}`)
     }
 
     render(){
         return(
             <section>
-
+                <div className='purchase-confirmation__header'>
+                    <h3>Receipt #d000{this.state.purchaseConfirmationId}</h3>
+                </div>
+                <div className='purchase-confirmation__table'>
+                    <Table responsive="sm">
+                        <thead>
+                            <tr>
+                                <th className='purchase-confirmation__no-items'>No of Products Purchased</th>
+                                <th className='purchase-confirmation__no-items'>No of Songs Purchased</th>
+                                <th className='purchase-confirmation__no-items'>Total No</th>
+                                <th className='purchase-confirmation__sub-total'>Sub Total</th>
+                                <th className='purchase-confirmation__taxes'>Taxes</th>
+                                <th className='purchase-confirmation__total'>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.getItemDataCard()}
+                        </tbody>
+                    </Table>
+                </div>
+                <div className='purchase-confirmation__btns'>
+                    <Button onClick={this.handleButtonClick} name='categories' className='purchase-confirmation__btn'>View our Categories!</Button><br />
+                    <Button onClick={this.handleButtonClick} name='genres' className='purchase-confirmation__btn'>View our Genres!</Button>
+                </div>
             </section>
         )
     }

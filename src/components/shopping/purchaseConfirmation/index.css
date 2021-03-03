@@ -1,0 +1,47 @@
+.purchase-confirmation__header {
+    margin-top: 10vh;
+    margin-left: 45vw;
+    margin-bottom: 5vh;
+}
+
+.purchase-confirmation__table {
+    width: 60%;
+    margin-left: 20vw;
+    margin-bottom: 20vh;
+}
+
+.purchase-confirmation__no-items {
+    width: 6vw;
+}
+
+.purchase-confirmation__sub-total {
+    width: 10vw;
+}
+
+.purchase-confirmation__taxes {
+    width: 10vw;
+}
+
+.purchase-confirmation__total {
+    width: 10vw;
+}
+
+.purchase-confirmation__general-item {
+    font-weight: bold;
+}
+
+.purchase-confirmation__total-item {
+    font-weight: bolder;
+    font-size: 1.1rem;
+    color: #014401;
+}
+
+.purchase-confirmation__btn {
+    margin-left: 46vw;
+    margin-bottom: 3vh;
+    width: 10vw;
+}
+
+.purchase-confirmation__btns {
+    margin-bottom: 20vh;
+} 
