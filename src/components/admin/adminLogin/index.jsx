@@ -5,6 +5,9 @@ import Button from 'react-bootstrap/Button'
 
 class AdminLogin extends React.Component {
 
+    goToAdminPage = () => {
+        this.props.history.push("/admin/admin-page")
+    }
 
     render(){
         return(
@@ -22,7 +25,7 @@ class AdminLogin extends React.Component {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button onClick={this.goToAdminPage()}variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
