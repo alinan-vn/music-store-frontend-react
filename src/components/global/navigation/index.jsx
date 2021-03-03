@@ -20,7 +20,7 @@ class Navigation extends React.Component {
                         <NavDropdown.Item href="/all-products">Products</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="/all-categories">Categories</Nav.Link>
-                    <Nav.Link href="/genres">Genres</Nav.Link>
+                    <Nav.Link href="/all-genres">Genres</Nav.Link>
                 </Nav>
                 <Nav>
                     <Nav.Link href="/cart">Cart</Nav.Link>
