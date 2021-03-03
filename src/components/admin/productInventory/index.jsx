@@ -78,7 +78,7 @@ class ProductInventory extends React.Component {
         return(
             <section>
                 <div className='product-inventory__header'>
-                    <h3>Product Management</h3>
+                    <h3>Product Inventory</h3>
                 </div>
                 <div className='product-inventory__table'>
                     <Table responsive="sm">
