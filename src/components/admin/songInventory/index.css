@@ -1,0 +1,11 @@
+.song-inventory__header {
+    margin-left: 45vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.song-inventory__table {
+    width: 80%;
+    margin-left: 10vw;
+    margin-bottom: 30vh;
+}
