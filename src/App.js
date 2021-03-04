@@ -12,6 +12,9 @@ import Login from './components/customer/login/index'
 import Profile from './components/customer/profile/index'
 import Register from './components/customer/register/index'
 import RegisterBillingInfo from './components/customer/register/registerBillingInfo/index'
+import EditProfile from './components/customer/profileManagement/index'
+import EditPaymentInfo from './components/customer/paymentInfoManagement/index'
+
 
 import Cart from './components/shopping/cart/index'
 import PurchaseConfirmation from './components/shopping/purchaseConfirmation/index'
@@ -45,6 +48,10 @@ function App(){
         <Route exact path='/register-billing-information' component={RegisterBillingInfo} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/profile' component={Profile} />
+        <Route exact path='/profile/:id' component={EditProfile} />
+        <Route exact path='/payment/:id' component={EditPaymentInfo} />
+
+
 
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/purchase-confirmation' component={PurchaseConfirmation} />

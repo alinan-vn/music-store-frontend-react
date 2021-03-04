@@ -5,6 +5,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
+import AuthService from '../../services/auth-service'
+import profile from './images/profile.png'
 
 class Navigation extends React.Component {
 
@@ -44,7 +46,11 @@ class Navigation extends React.Component {
                     <Button variant="outline-info">Search</Button>
                 </Form>
                 <Nav>
-                    <Nav.Link href="/login">Login/Register</Nav.Link>
+                    {AuthService.getCurrentUser() == null ?
+                     <Nav.Link href="/login">Login/Register</Nav.Link>:
+                     <Nav.Link href="/profile"> <img src =  {profile} style = {{height: 30 + 'px'}}   ></img> </Nav.Link>
+                }
+                   
                 </Nav>
             </Navbar>
         )

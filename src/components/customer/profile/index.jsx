@@ -3,6 +3,7 @@ import './index.css'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+import { Nav } from 'react-bootstrap'
 
 class Profile extends React.Component {
 
@@ -49,7 +50,7 @@ class Profile extends React.Component {
                         <ListGroup.Item>Password: {this.state.profileData.password}</ListGroup.Item>
                         <ListGroup.Item>Phone: {this.state.profileData.phone}</ListGroup.Item>
                         <ListGroup.Item>Email: {this.state.profileData.email}</ListGroup.Item>
-                        <Button>Edit</Button>
+                        <Button  a href = {"/profile/" + this.state.profileData.username}>Edit</Button>
                     </ListGroup>
                 </Card>
 
@@ -65,7 +66,7 @@ class Profile extends React.Component {
                         <ListGroup.Item>Expiration Day: {this.state.paymentData.expirationDay}</ListGroup.Item>
                         <ListGroup.Item>Name on Card: {this.state.paymentData.nameOnCard}</ListGroup.Item>
                         <ListGroup.Item>Pin Number: {this.state.paymentData.pinNo}</ListGroup.Item>
-                        <Button>Edit</Button>
+                        <Button  a href = {"/payment/" + this.state.profileData.username}>Edit</Button>
                     </ListGroup>
                 </Card>
 
