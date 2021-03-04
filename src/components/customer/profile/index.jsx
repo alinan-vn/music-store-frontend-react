@@ -65,7 +65,6 @@ class Profile extends React.Component {
                         <ListGroup.Item>Expiration Day: {this.state.paymentData.expirationDay}</ListGroup.Item>
                         <ListGroup.Item>Name on Card: {this.state.paymentData.nameOnCard}</ListGroup.Item>
                         <ListGroup.Item>Pin Number: {this.state.paymentData.pinNo}</ListGroup.Item>
-                        <Button>Edit</Button>
                     </ListGroup>
                 </Card>
 
