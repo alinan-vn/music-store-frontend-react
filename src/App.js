@@ -51,11 +51,11 @@ function App(){
 
         <Route exact path='/all-products' component={AllProducts} />
         <Route exact path='/all-categories' component={AllCategories} />
-        <Route exact path='/products-by-selected-category' component={ProductsBySelectedCategory} />
+        <Route exact path='/products-by-selected-category/:category' component={ProductsBySelectedCategory} />
         <Route exact path='/product-detail' component={ProductDetail} />
         <Route exact path='/all-songs' component={AllSongs} />
         <Route exact path='/all-genres' component={AllGenres} />
-        <Route exact path='/songs-by-selected-genre' component={SongsBySelectedGenre} />
+        <Route exact path='/songs-by-selected-genre/:genre' component={SongsBySelectedGenre} />
         <Route exact path='/song-detail' component={SongDetail} />
 
         <Route exact path='/search-results' component={SearchResults} />
