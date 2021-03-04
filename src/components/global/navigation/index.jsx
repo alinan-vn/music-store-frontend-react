@@ -19,8 +19,22 @@ class Navigation extends React.Component {
                         <NavDropdown.Item href="/all-songs">Songs</NavDropdown.Item>
                         <NavDropdown.Item href="/all-products">Products</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/all-categories">Categories</Nav.Link>
-                    <Nav.Link href="/all-genres">Genres</Nav.Link>
+                    <NavDropdown title="Categories" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/products-by-selected-category/djgear">DJ Gear</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/instruments">Intruments</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/album">Albums</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/lifestyle">Lifestyle</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/accesseries">Accesseries</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/audio">Audio</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Genres" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/songs-by-selected-genre/hiphop">Hip-Hop</NavDropdown.Item>
+                        <NavDropdown.Item href="/songs-by-selected-genre/rb">R&B</NavDropdown.Item>
+                        <NavDropdown.Item href="/songs-by-selected-genre/pop">Pop</NavDropdown.Item>
+                        <NavDropdown.Item href="/songs-by-selected-genre/rock">Rock</NavDropdown.Item>
+                        <NavDropdown.Item href="/songs-by-selected-genre/techno">Techno</NavDropdown.Item>
+                        <NavDropdown.Item href="/songs-by-selected-genre/country">Country</NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
                 <Nav>
                     <Nav.Link href="/cart">Cart</Nav.Link>
