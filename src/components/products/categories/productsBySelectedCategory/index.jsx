@@ -40,7 +40,7 @@ class ProductsBySelectedCategory extends React.Component {
         else{
             this.setState({category: category})
          }
-         axios.get(`http://localhost:8080/api/song`)
+         axios.get(`http://localhost:8080/api/product`)
         .then(res => {
           const products = res.data;
           this.setState({products: products, isLoading: false });
@@ -48,11 +48,26 @@ class ProductsBySelectedCategory extends React.Component {
          
         }
 
-      async  addToCart(id){
-          
+      async  addToCart(product){
+        axios.get(`http://localhost:8080/api/shoppingcart/1`)
+        .then(res => {
+          const shoppingCart = res.data;
+          fetch('http://localhost:8080/api/savecartproducts', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'shoppingCart': shoppingCart,'quantity':1,'product':product})
+        }).then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
+        })
       }
     render(){
         const {products, category} = this.state;
+        {console.log(products)}
         return(
             <section>
             <Table className = "container  ">
@@ -67,16 +82,16 @@ class ProductsBySelectedCategory extends React.Component {
         </tr>
       </thead>
       <tbody>
-      {products.filter(function(product){ return product.category == category;}).map(product =>
+      {products.filter(function(product){ return product.category.categoryName == category;}).map(product =>
              <tr key={product.id}> 
              <td> </td>
-               <td>{product.name}</td>  
+               <td>{product.productName}</td>  
                <td>${product.price}</td> 
                <td>{product.description}</td>
-               <td>{product.category}</td>
+               <td>{product.category.categoryName}</td>
                <td>
                <ButtonGroup>
-                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(product.id)}>Add to Cart</Button>
+                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(product)}>Add to Cart</Button>
                 </ButtonGroup>       
                 </td>     
               </tr>

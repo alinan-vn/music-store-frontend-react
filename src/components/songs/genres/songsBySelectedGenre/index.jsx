@@ -57,8 +57,22 @@ class SongsBySelectedGenre extends React.Component {
 
         }
 
-      async  addToCart(id){
-          
+      async  addToCart(song){
+        axios.get(`http://localhost:8080/api/shoppingcart/1`)
+        .then(res => {
+          const shoppingCart = res.data;
+          fetch('http://localhost:8080/api/savecartsongitems', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'shoppingCart': shoppingCart,'quantity':1,'song':song})
+        }).then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
+        })
       }
     render(){
         const {songs, genre} = this.state;
@@ -78,18 +92,18 @@ class SongsBySelectedGenre extends React.Component {
         </tr>
       </thead>
       <tbody>
-      {songs.filter(function(song){ return song.genre == genre;}).map(song =>
+      {songs.filter(function(song){ return song.genre.genreName == genre;}).map(song =>
              <tr key={song.id}> 
              <td> </td>
-               <td>{song.name}</td>  
+               <td>{song.songName}</td>  
                <td>${song.price}</td> 
                <td>{song.artist}</td>
-               <td>{song.album}</td>
-               <td>{song.format}</td>
-               <td>{song.genre}</td>
+               <td>{song.album.albumName}</td>
+               <td>MP3</td>
+               <td>{song.genre.genreName}</td>
                <td>
                <ButtonGroup>
-                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song.id)}>Add to Cart</Button>
+                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song)}>Add to Cart</Button>
                 </ButtonGroup>       
                 </td>     
               </tr>
