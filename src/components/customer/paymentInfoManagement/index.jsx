@@ -2,6 +2,7 @@ import React from 'react'
 import { Nav } from 'react-bootstrap';
 import { Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import {Button} from 'react-bootstrap';
+
 class EditPaymentInfo extends React.Component {
 
     emptyItem = {

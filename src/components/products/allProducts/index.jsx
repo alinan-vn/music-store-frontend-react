@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, ButtonGroup, Container, Table, ListGroup, ListGroupItem} from 'react-bootstrap';
 import guitar from '../product_images/ORANGEWOOD_REY_MOHOGANY_CUTAWAY_BEGINNER_ACOUSTIC_GUITAR-1_2000x.png';
-import axios from 'axios';
+
 
 class AllProducts extends React.Component {
     
@@ -10,41 +10,18 @@ class AllProducts extends React.Component {
 
     constructor(props) {
         super();
-        this.state = {products: [],
-            isLoading: false};
+        this.state = {products: 
+            [{  id: '1', 
+                name: 'Guitar',
+                price: '3000.99',
+                description:'A really nice guitar'  
+               } ]};
         
       }
 
-      componentDidMount() {
-        this.setState({isLoading: true});
-        axios.get(`http://localhost:8080/api/product`)
-        .then(res => {
-          const products = res.data;
-          this.setState({products: products, isLoading: false });
-        })
+      async  addToCart(id){
+
       }
-
-
-
-
-       addToCart(product){
-        axios.get(`http://localhost:8080/api/shoppingcart/1`)
-        .then(res => {
-          const shoppingCart = res.data;
-          fetch('http://localhost:8080/api/savecartproducts', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({'shoppingCart': shoppingCart,'quantity':1,'product':product})
-        }).then(res => {
-            console.log(res);
-            console.log(res.data);
-          });
-        })
-    }
-
     render(){
         const {products} = this.state;
         return(
@@ -52,6 +29,7 @@ class AllProducts extends React.Component {
             <Table className = "container  ">
       <thead>
         <tr>
+        <th></th>
           <th>Product name</th>
           <th>Price</th>
           <th>Description</th>
@@ -61,12 +39,13 @@ class AllProducts extends React.Component {
       <tbody>
       {products.map(product =>
              <tr key={product.id}> 
-               <td>{product.productName}</td>  
+             <td> <img src = {guitar} width="100" height="50"/></td>
+               <td>{product.name}</td>  
                <td>${product.price}</td> 
                <td>{product.description}</td>
                <td>
                <ButtonGroup>
-                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(product)}>Add to Cart</Button>
+                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(product.id)}>Add to Cart</Button>
                 </ButtonGroup>       
                 </td>     
               </tr>

@@ -2,9 +2,12 @@ import React from 'react'
 import './index.css'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import AuthService from '../../services/auth-service'
+
 class Login extends React.Component {
+
     constructor(){
-super()
+        super()
         this.state = {
             username: '',
             password: ''
@@ -40,7 +43,6 @@ super()
             if(currentCustomer.username == cust.username){
                 if(currentCustomer.password == cust.password){
                     localStorage.setItem("user", JSON.stringify(currentCustomer))
-                    console.log(currentCustomer);
                     this.props.history.push("/")
                     pass = true
                 }
@@ -49,13 +51,15 @@ super()
         if(!pass){
             alert("invalid credentials")
         }
-
+        
     }
 
     render(){
         return(
             <section>
-
+                <div className='login-header'>
+                    <h2>Please Login</h2>
+                </div>
                 <Form className="login-form">
                     <Form.Group controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
@@ -70,7 +74,6 @@ super()
                         Submit
                     </Button>
                 </Form>
-
                 <div>
                     <Button className='login-register-link'><a href="/register">Register/Sign up!</a></Button>
                 </div>

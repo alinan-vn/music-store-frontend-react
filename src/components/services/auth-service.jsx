@@ -6,26 +6,29 @@ class AuthService {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'username':username,'password': password})
+            body: JSON.stringify({'username': username,'password': password})
         })
-            .then(res => {
-                const user = res.data;
-                localStorage.setItem("user",JSON.stringify(user));
-              })
+            .then(response => {
+                if (response != null) {
+                    localStorage.setItem("user", JSON.stringify(response.body));
+                    console.log('response', response)
+                }
+                return response.body;
+            });
     }
 
     logout() {
         localStorage.removeItem("user");
     }
 
-    async register(username, email, password,) {
+    async register(username, email, password,role) {
         await fetch('http://localhost:8080/api/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'username':username,'email':email ,'password':password})
+            body: JSON.stringify({'username':username,'email':email ,'password':password,'role':role})
         });
     }
 

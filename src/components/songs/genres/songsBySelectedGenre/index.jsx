@@ -1,7 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, ButtonGroup, Table} from 'react-bootstrap';
-import axios from 'axios';
 
 class SongsBySelectedGenre extends React.Component {
     constructor(props) {
@@ -41,38 +40,16 @@ class SongsBySelectedGenre extends React.Component {
         
       }
       async componentDidMount() {
-        this.setState({isLoading: true});
         var genre = this.props.match.params.genre;
         if (genre == null) 
             this.props.history.push("./")
         else{
             this.setState({genre: genre})
          }
-        
-        axios.get(`http://localhost:8080/api/song`)
-        .then(res => {
-          const songs = res.data;
-          this.setState({songs: songs, isLoading: false });
-        })
-
         }
 
-      async  addToCart(song){
-        axios.get(`http://localhost:8080/api/shoppingcart/1`)
-        .then(res => {
-          const shoppingCart = res.data;
-          fetch('http://localhost:8080/api/savecartsongitems', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({'shoppingCart': shoppingCart,'quantity':1,'song':song})
-        }).then(res => {
-            console.log(res);
-            console.log(res.data);
-          });
-        })
+      async  addToCart(id){
+          
       }
     render(){
         const {songs, genre} = this.state;
@@ -92,18 +69,18 @@ class SongsBySelectedGenre extends React.Component {
         </tr>
       </thead>
       <tbody>
-      {songs.filter(function(song){ return song.genre.genreName == genre;}).map(song =>
+      {songs.filter(function(song){ return song.genre == genre;}).map(song =>
              <tr key={song.id}> 
              <td> </td>
-               <td>{song.songName}</td>  
+               <td>{song.name}</td>  
                <td>${song.price}</td> 
                <td>{song.artist}</td>
-               <td>{song.album.albumName}</td>
-               <td>MP3</td>
-               <td>{song.genre.genreName}</td>
+               <td>{song.album}</td>
+               <td>{song.format}</td>
+               <td>{song.genre}</td>
                <td>
                <ButtonGroup>
-                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song)}>Add to Cart</Button>
+                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song.id)}>Add to Cart</Button>
                 </ButtonGroup>       
                 </td>     
               </tr>
