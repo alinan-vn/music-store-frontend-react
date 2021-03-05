@@ -58,7 +58,7 @@ class AllSongs extends React.Component {
                <td>{song.artist}</td>
                <td>{song.album}</td>
                <td>{song.format}</td>
-               <td>{song.genre}</td>
+               <td>{song.genre.id}</td>
                <td>
                <ButtonGroup>
                  <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song.id)}>Add to Cart</Button>
