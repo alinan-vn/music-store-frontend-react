@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, ButtonGroup, Table} from 'react-bootstrap';
+import axios from 'axios'
 
 class ProductsBySelectedCategory extends React.Component {
 
@@ -32,12 +33,19 @@ class ProductsBySelectedCategory extends React.Component {
         
       }
       async componentDidMount() {
+        this.setState({isLoading: true});
         var category = this.props.match.params.category;
         if (category == null) 
             this.props.history.push("./")
         else{
             this.setState({category: category})
          }
+         axios.get(`http://localhost:8080/api/song`)
+        .then(res => {
+          const products = res.data;
+          this.setState({products: products, isLoading: false });
+        })
+         
         }
 
       async  addToCart(id){

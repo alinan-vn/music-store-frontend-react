@@ -3,6 +3,7 @@ import cover from '../song_images/220px-Michael_jackson_thriller_12_inch_single_
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, ButtonGroup, Table} from 'react-bootstrap';
 import Popup from "reactjs-popup";
+import axios from 'axios';
 class AllSongs extends React.Component {
 
     constructor(props) {
@@ -18,6 +19,15 @@ class AllSongs extends React.Component {
                } ]};
         
       }
+      componentDidMount(){
+        this.setState({isLoading: true});
+        axios.get(`http://localhost:8080/api/song`)
+        .then(res => {
+          const songs = res.data;
+          this.setState({songs: songs, isLoading: false });
+        })
+      }
+      
 
       async  addToCart(id){
           

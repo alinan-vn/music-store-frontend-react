@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, ButtonGroup, Table} from 'react-bootstrap';
+import axios from 'axios';
 
 class SongsBySelectedGenre extends React.Component {
     constructor(props) {
@@ -40,12 +41,20 @@ class SongsBySelectedGenre extends React.Component {
         
       }
       async componentDidMount() {
+        this.setState({isLoading: true});
         var genre = this.props.match.params.genre;
         if (genre == null) 
             this.props.history.push("./")
         else{
             this.setState({genre: genre})
          }
+        
+        axios.get(`http://localhost:8080/api/song`)
+        .then(res => {
+          const songs = res.data;
+          this.setState({songs: songs, isLoading: false });
+        })
+
         }
 
       async  addToCart(id){
