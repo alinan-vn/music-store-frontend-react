@@ -1,6 +1,6 @@
 class AuthService {
     async login(username, password) {
-        await fetch('http://localhost:8080/api/login', {
+        await fetch('http://localhost:8080/api/customer/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
