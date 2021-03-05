@@ -40,7 +40,7 @@ class ProductsBySelectedCategory extends React.Component {
         else{
             this.setState({category: category})
          }
-         axios.get(`http://localhost:8080/api/song`)
+         axios.get(`http://localhost:8080/api/product`)
         .then(res => {
           const products = res.data;
           this.setState({products: products, isLoading: false });
@@ -67,6 +67,7 @@ class ProductsBySelectedCategory extends React.Component {
       }
     render(){
         const {products, category} = this.state;
+        {console.log(products)}
         return(
             <section>
             <Table className = "container  ">
@@ -81,10 +82,10 @@ class ProductsBySelectedCategory extends React.Component {
         </tr>
       </thead>
       <tbody>
-      {products.filter(function(product){ return product.category.categoryName == category}).map(product =>
+      {products.filter(function(product){ return product.category.categoryName == category;}).map(product =>
              <tr key={product.id}> 
              <td> </td>
-               <td>{product.name}</td>  
+               <td>{product.productName}</td>  
                <td>${product.price}</td> 
                <td>{product.description}</td>
                <td>{product.category.categoryName}</td>

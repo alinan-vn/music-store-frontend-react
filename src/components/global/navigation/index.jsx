@@ -24,9 +24,9 @@ class Navigation extends React.Component {
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/products-by-selected-category/djgear">DJ Gear</NavDropdown.Item>
                         <NavDropdown.Item href="/products-by-selected-category/instruments">Intruments</NavDropdown.Item>
-                        <NavDropdown.Item href="/products-by-selected-category/album">Albums</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/albums">Albums</NavDropdown.Item>
                         <NavDropdown.Item href="/products-by-selected-category/lifestyle">Lifestyle</NavDropdown.Item>
-                        <NavDropdown.Item href="/products-by-selected-category/accesseries">Accesseries</NavDropdown.Item>
+                        <NavDropdown.Item href="/products-by-selected-category/accessories">Accesseries</NavDropdown.Item>
                         <NavDropdown.Item href="/products-by-selected-category/audio">Audio</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Genres" id="basic-nav-dropdown">
