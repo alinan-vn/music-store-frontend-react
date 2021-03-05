@@ -66,10 +66,7 @@ class Profile extends React.Component {
                         <ListGroup.Item>Expiration Day: {this.state.paymentData.expirationDay}</ListGroup.Item>
                         <ListGroup.Item>Name on Card: {this.state.paymentData.nameOnCard}</ListGroup.Item>
                         <ListGroup.Item>Pin Number: {this.state.paymentData.pinNo}</ListGroup.Item>
-<<<<<<< HEAD
-=======
                         <Button  a href = {"/payment/" + this.state.profileData.username}>Edit</Button>
->>>>>>> 6fe2263f26c649df3e3dd6ccda706099828329e1
                     </ListGroup>
                 </Card>
 
