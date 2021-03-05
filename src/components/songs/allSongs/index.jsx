@@ -29,9 +29,26 @@ class AllSongs extends React.Component {
       }
       
 
-      async  addToCart(id){
+      async  addToCart(song){
+        axios.get(`http://localhost:8080/api/shoppingcart/1`)
+        .then(res => {
+          const shoppingCart = res.data;
+          fetch('http://localhost:8080/api/savecartsongitems', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'shoppingCart': shoppingCart,'quantity':1,'song':song})
+        }).then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
+        })
+        
+    }
           
-      }
+      
     render(){
         const {songs} = this.state;
         return(
@@ -39,7 +56,6 @@ class AllSongs extends React.Component {
             <Table className = "container  ">
       <thead>
         <tr>
-        <th></th>
           <th>Title</th>
           <th>Price</th>
           <th>Artsit</th>
@@ -52,16 +68,15 @@ class AllSongs extends React.Component {
       <tbody>
       {songs.map(song =>
              <tr key={song.id}> 
-             <td> <img src = {cover} width="100" height="100"/></td>
-               <td>{song.name}</td>  
+               <td>{song.songName}</td>  
                <td>${song.price}</td> 
                <td>{song.artist}</td>
-               <td>{song.album}</td>
-               <td>{song.format}</td>
+               <td>{song.album.albumName}</td>
+               <td>MP3</td>
                <td>{song.genre.id}</td>
                <td>
                <ButtonGroup>
-                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song.id)}>Add to Cart</Button>
+                 <Button className="float-right" size="sm" color="primary"  onClick={() => this.addToCart(song)}>Add to Cart</Button>
                 </ButtonGroup>       
                 </td>     
               </tr>
